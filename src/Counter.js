@@ -4,16 +4,19 @@ import React from 'react';
 // Redux
 import { connect } from 'react-redux';
 
+// Imported Action Constants 
+import { INCREMENT, DECREMENT } from './index';
+
 // ***************************************************
 
 
 class Counter extends React.Component {
     increment = () => {
-        this.props.dispatch({ type: 'INCREMENT' })
+        this.props.dispatch({ type: INCREMENT })
     }
 
     decrement = () => {
-        this.props.dispatch({ type: 'DECREMENT' })
+        this.props.dispatch({ type: DECREMENT })
     }
 
     render() {

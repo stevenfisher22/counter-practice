@@ -14,6 +14,10 @@ import './index.css';
 
 // ********************************************************
 
+// Action Constants
+export const INCREMENT = 'INCREMENT';
+export const DECREMENT = 'DECREMENT';
+
 // Initial State
 const initialState = {
     count: 0
@@ -22,11 +26,11 @@ const initialState = {
 // Reducer
 function reducer(state = initialState, action) {
     switch(action.type) {
-        case 'INCREMENT':
+        case INCREMENT:
             return {
                 count: state.count + 1
             };
-        case 'DECREMENT':
+        case DECREMENT:
             return {
                 count: state.count - 1
             };
