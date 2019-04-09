@@ -14,9 +14,19 @@ import './index.css';
 
 // ********************************************************
 
-// Action Constants
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
+// ACTION CONSTANTS
+// Variables named to make it easier than writing/copying the string all over the app
+const INCREMENT = 'INCREMENT';
+const DECREMENT = 'DECREMENT';
+
+// ACTION CREATORS
+// Functions that return these Action objects so we don't have to manually write them all over the app 
+export function increment() {
+    return { type: INCREMENT };
+};
+export function decrement() {
+    return { type: DECREMENT };
+};
 
 // Initial State
 const initialState = {

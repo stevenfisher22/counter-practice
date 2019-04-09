@@ -4,20 +4,25 @@ import React from 'react';
 // Redux
 import { connect } from 'react-redux';
 
-// Imported Action Constants 
-import { INCREMENT, DECREMENT } from './index';
+// Imported Action Creators
+import { increment, decrement } from './index';
 
 // ***************************************************
 
 
 class Counter extends React.Component {
     increment = () => {
-        this.props.dispatch({ type: INCREMENT })
+        this.props.increment()
     }
 
     decrement = () => {
-        this.props.dispatch({ type: DECREMENT })
+        this.props.decrement()
     }
+
+    // OLD WAY BEFORE 'mapDispatchToProps'
+    // decrement = () => {
+    //     this.props.dispatch(decrement())
+    // }
 
     render() {
         return (
@@ -33,13 +38,21 @@ class Counter extends React.Component {
     }
 }
 
+// Map State/Dispatch To Props
 function mapStateToProps(state) {
     return {
         count: state.count
     }
-}
+};
+// MAP DISPATCH TO PROPS
+// Maps the Action Creators to Props, pre-binding them to the Dispatch function already passed in as a Prop
+const mapDispatchToProps = {
+    increment: increment,
+    // In ES6, if the key and value are the same you don't have to name both separately (decrement: decrement)
+    decrement
+};
 
-export default connect(mapStateToProps)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 
 
 
