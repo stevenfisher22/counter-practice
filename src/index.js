@@ -5,15 +5,45 @@ import ReactDOM from 'react-dom';
 // Components
 import Counter from './Counter';
 
+// Redux
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
 // CSS
 import './index.css';
+
+// ********************************************************
+
+// Initial State
+const initialState = {
+    count: 0
+};
+
+// Reducer
+function reducer(state = initialState, action) {
+    switch(action.type) {
+        case 'INCREMENT':
+            return {
+                count: state.count + 1
+            };
+        case 'DECREMENT':
+            return {
+                count: state.count - 1
+            };
+        default: 
+            return state;
+    }
+}
+
+// Redux Stote 
+const store = createStore(reducer);
 
 
 const App = () => {
     return (
-        <div>
+        <Provider store={store}>
             <Counter />
-        </div>
+        </Provider>
     )
 }
 
