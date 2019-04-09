@@ -38,7 +38,7 @@ class Counter extends React.Component {
     }
 }
 
-// Map State/Dispatch To Props
+// MAP STATE TO PROPS
 function mapStateToProps(state) {
     return {
         count: state.count
@@ -52,6 +52,8 @@ const mapDispatchToProps = {
     decrement
 };
 
+// CONNECT connects the Store to this Component (Counter) and then you can make functions to pull what you need
+// from state in (In this case: 'count' from State and the Action Creators 'increment' and 'decrement')
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 
 
