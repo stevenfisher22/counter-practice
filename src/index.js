@@ -2,14 +2,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// Components
+import Counter from './Counter';
+
 // CSS
 import './index.css';
 
 
-function App() {
+const App = () => {
     return (
         <div>
-            Test
+            <Counter />
         </div>
     )
 }
